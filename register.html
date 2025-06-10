@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="validations.js"></script>
+</head>
+<body>
+  <h1>Formulario de Registro</h1>
+  <form id="registerForm">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required>
+
+    <label for="segundoNombre">Segundo Nombre:</label>
+    <input type="text" name="segundoNombre" id="segundoNombre">
+
+    <label for="apellidoP">Apellido Paterno:</label>
+    <input type="text" name="apellidoP" id="apellidoP" required>
+
+    <label for="apellidoM">Apellido Materno:</label>
+    <input type="text" name="apellidoM" id="apellidoM" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="confirmPassword">Confirmar Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+    <button type="submit">Registrarse</button>
+  </form>
+</body>
+</html>
