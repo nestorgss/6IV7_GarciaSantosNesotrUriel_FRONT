@@ -14,5 +14,37 @@
     <input type="password" required><br><br>
     <button type="submit">Ingresar</button>
   </form>
+
+<script>
+window.onload = function() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    window.location.href = "index.html";
+  }
+};
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const username = document.querySelector('input[type="text"]').value.trim();
+  const password = document.querySelector('input[type="password"]').value;
+
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  const user = users.find(user => user.username === username && user.password === password);
+
+  if (user) {
+    const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
+    localStorage.setItem('token', token);
+    localStorage.setItem('activeUser', JSON.stringify(user));
+    alert('Inicio de sesión exitoso');
+    window.location.href = "index.html";
+  } else {
+    alert('Usuario o contraseña incorrectos');
+  }
+});
+</script>
+
+
+ 
+
 </body>
 </html>

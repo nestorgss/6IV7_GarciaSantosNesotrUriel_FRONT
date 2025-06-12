@@ -89,3 +89,20 @@ button:hover {
   margin-bottom: 10px;
   font-size: 1.1rem;
 }
+.cerrar-sesion-btn {
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 40px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+  width: auto;
+  display: block;
+}
+.cerrar-sesion-btn:hover {
+  background-color: #16a34a;
+}

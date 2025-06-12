@@ -14,5 +14,47 @@
     <a href="bienvenida.html">Ir a Bienvenida</a> |
     <a href="register.html">Ir a Registro</a>
   </nav>
+  <script>
+window.onload = function() {
+  const token = localStorage.getItem('token');
+  const user = JSON.parse(localStorage.getItem('activeUser'));
+
+  if (!token || !user) {
+    window.location.href = "bienvenida.html";
+    return;
+  }
+
+  // Contenedor para usuario y botón
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.alignItems = 'center';
+  container.style.marginTop = '30px';
+  container.style.gap = '20px';
+
+  // Usuario autenticado
+  const p = document.createElement('p');
+  p.textContent = "Usuario autenticado: " + user.username;
+  p.style.fontWeight = 'bold';
+  p.style.fontSize = '1.2rem';
+
+  // Botón cerrar sesión
+  const btn = document.createElement('button');
+  btn.textContent = "Cerrar sesión";
+  btn.style.width = "auto";          // <-- ¡Ya no se extiende!
+  btn.style.padding = "12px 40px";
+  btn.style.fontWeight = "bold";
+  btn.onclick = function() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('activeUser');
+    window.location.href = "bienvenida.html";
+  };
+
+  container.appendChild(p);
+  container.appendChild(btn);
+  document.body.appendChild(container);
+};
+</script>
+
 </body>
 </html>
